@@ -17,10 +17,29 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.window.KeyStroke
+import androidx.compose.ui.window.Menu
+import androidx.compose.ui.window.MenuBar
+import androidx.compose.ui.window.MenuItem
 
 
-fun main() = Window {
+fun main() = Window (
+  title = "Getemall Desktop",
+  size = IntSize(400, 600),
+  menuBar = MenuBar (
+    Menu (
+      name = "Help",
+      MenuItem (
+        name = "About",
+        onClick = { println("click") },
+        shortcut = KeyStroke(Key.A)
+      )
+    )
+  )
+) {
   Image (
     bitmap = imageResource("medal.jpg"), // ImageBitmap
     modifier = Modifier.fillMaxSize()
